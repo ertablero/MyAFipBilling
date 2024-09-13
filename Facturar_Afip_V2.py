@@ -25,6 +25,7 @@ fecha_comprobante = os.getenv("BILL_DATE")
 fecha_desde = os.getenv("FROM_DATE")
 fecha_hasta = os.getenv("TO_DATE")
 fecha_expiracion = os.getenv("EXPIRATION_DATE")
+DETALLE_DESCRIPCION = os.getenv("DESCRIPTION_DETAIL")
 
 
 
@@ -289,7 +290,7 @@ for iteration in range(ITERATIONS):
         
 
 # Leer la variable de entorno que contiene el valor que deseas ingresar
-        DETALLE_DESCRIPCION = os.getenv('DETALLE_DESCRIPCION', 'Valor por defecto')  # Valor por defecto en caso de que no se defina en .env
+        #DETALLE_DESCRIPCION = os.getenv('DETALLE_DESCRIPCION', 'Valor por defecto')  # Valor por defecto en caso de que no se defina en .env
 
 # Asegúrate de que el campo textarea esté presente y usa el valor de la variable de entorno para rellenarlo
     
