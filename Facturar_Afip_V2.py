@@ -28,6 +28,18 @@ fecha_expiracion = os.getenv("EXPIRATION_DATE")
 DETALLE_DESCRIPCION = os.getenv("DESCRIPTION_DETAIL")
 
 
+print("MY_USER:", os.getenv('MY_USER'))
+print("MY_PASSWORD:", os.getenv('MY_PASSWORD'))
+print("MONTH:", os.getenv('MONTH'))
+print("ITERATIONS:", int(os.getenv('ITERATIONS', 1)))  # Número de iteraciones
+print("AMOUNT:", os.getenv("AMOUNT"))
+print("COMPANY:", os.getenv("COMPANY"))
+print("USERNAME:", os.getenv("BILL_DATE"))
+print("BILL_DATE:", os.getenv("FROM_DATE"))
+print("TO_DATE:", os.getenv("TO_DATE"))
+print("EXPIRATION_DATE:", os.getenv("EXPIRATION_DATE"))
+print("DESCRIPTION_DETAIL:", os.getenv("DESCRIPTION_DETAIL"))
+
 
 # Función para obtener el primer día hábil del mes
 def get_first_weekday(year, month):
@@ -332,7 +344,13 @@ for iteration in range(ITERATIONS):
     # Hace clic en el botón "Continuar"
         continue_button.click()
 
-        # Otras acciones...
+        # Espera explícita para que el botón sea clickeable
+        confirm_button = WebDriverWait(driver, 10).until(
+         EC.element_to_be_clickable((By.XPATH, '//input[@type="button" and @value="Confirmar Datos..." and @id="btngenerar"]'))
+        )
+
+# Hace clic en el botón "Confirmar Datos..."
+        confirm_button.click()# Otras acciones...
     
     except TimeoutException:
         print("No se pudo encontrar alguno de los campos de fecha.")
